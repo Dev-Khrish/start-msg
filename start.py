@@ -6,7 +6,7 @@ BOT_TOKEN = '6286222522:AAGDmZF5xdpakB8_4-SpmATSjerBVG4iohs'
 
 def start(update: Update, context: CallbackContext) -> None:
     user = update.effective_user
-    update.message.reply_text(<b>f"Hi {user.first_name}!\nThis Bot Is No More Working New BOT LInk Is\n@MHA_SearchBot"</b>)
+    update.message.reply_text(f"Hi {user.first_name}!\nThis Bot Is No More Working New BOT LInk Is\n@MHA_SearchBot")
 
 def main():
     # Create an Updater object with your bot token
