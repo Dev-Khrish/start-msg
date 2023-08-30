@@ -14,7 +14,7 @@ def main():
     dispatcher = updater.dispatcher
 
     # Add a message handler to respond to messages in private chats
-    dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command & Filters.private, respond_to_message))
+    dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command & Filters.chat_type.private, respond_to_message))
 
     # Start polling for updates from Telegram
     updater.start_polling()
