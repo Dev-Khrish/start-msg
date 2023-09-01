@@ -13,9 +13,9 @@ app = Client('my_bot', api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 def handle_message(client, message):
     user = message.from_user
     response_message = (
-        f"<b>👋 Hi {user.mention()}...!\n\n"
-        "😔 Unfortunately, this bot is no longer in service.\n\n"
-        "Please use the new BOT: @MHA_SearchBot 🚀</b>"
+        f"<b>👋 Hi {user.mention()}...!\n\n</b>"
+        "<b>😔 Unfortunately, this bot is no longer in service.\n\n</b>"
+        "<b>Please use the new BOT: @MHA_SearchBot 🚀</b>"
     )
     message.reply_text(response_message)
 
