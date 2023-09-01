@@ -1,42 +1,19 @@
-import logging
-from telegram.ext import Updater, CommandHandler, MessageHandler, CallbackContext
-from telegram.ext.filters import Filters
+from pyrogram import Client, filters
 
-# Set up logging
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+# Replace 'YOUR_API_ID' and 'YOUR_API_HASH' with your actual values
+api_id = '23830477'
+api_hash = '19f8365d98fb11c9cd6c1eaa8b1fa4b8'
+bot_token = '6286222522:AAGDmZF5xdpakB8_4-SpmATSjerBVG4iohs'
 
-# Define your bot token here
-TOKEN = '6286222522:AAGDmZF5xdpakB8_4-SpmATSjerBVG4iohs'
+# Create a Pyrogram Client
+app = Client('my_bot', api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
-# Function to handle the /start command
-def start(update: Update, context: CallbackContext):
-    user = update.effective_user
-    update.message.reply_html(
-        f"Hi {user.first_name}!\nThis Bot Is No More Working New BOT Link Is\n\n@MHA_SearchBot"
-    )
+# Define a function to handle incoming messages
+@app.on_message(filters.text)
+def handle_message(client, message):
+    user = message.from_user
+    message.reply_text(f"Hi {user.first_name}!\nThis Bot Is No More Working New BOT Link Is\n\n@MHA_SearchBot")
 
-# Function to handle incoming messages
-def echo(update: Update, context: CallbackContext):
-    update.message.reply_text(update.message.text)
-
-def main():
-    # Create the Updater with your bot's token
-    updater = Updater(TOKEN, use_context=True)
-
-    # Get the dispatcher to register handlers
-    dp = updater.dispatcher
-
-    # Register a command handler for /start
-    dp.add_handler(CommandHandler("start", start))
-
-    # Register a message handler to echo messages
-    dp.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
-
+if __name__ == "__main__":
     # Start the bot
-    updater.start_polling()
-
-    # Run the bot until you send a signal to stop (e.g., Ctrl+C)
-    updater.idle()
-
-if __name__ == '__main__':
-    main()
+    app.run()
