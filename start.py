@@ -1,5 +1,7 @@
 from telegram import Update
-from telegram.ext import Updater, MessageHandler, Filters, CallbackContext
+from telegram.ext import Updater, MessageHandler, CallbackContext
+from telegram.ext.filters import Filters
+
 # Replace 'YOUR_BOT_TOKEN' with your actual bot token
 BOT_TOKEN = '6286222522:AAGDmZF5xdpakB8_4-SpmATSjerBVG4iohs'
 
@@ -18,6 +20,7 @@ def main():
 
     # Start polling for updates from Telegram
     updater.start_polling()
+    
     # Run the bot until you press Ctrl-C
     updater.idle()
 
