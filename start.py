@@ -1,6 +1,5 @@
 from telegram import Update
-from telegram.ext import Updater, MessageHandler, CallbackContext
-from telegram.ext.filters import Filters  # Import Filters from telegram.ext.filters
+from telegram.ext import Updater, MessageHandler, CallbackContext, Filters
 
 # Replace 'YOUR_BOT_TOKEN' with your actual bot token
 BOT_TOKEN = '6286222522:AAGDmZF5xdpakB8_4-SpmATSjerBVG4iohs'
