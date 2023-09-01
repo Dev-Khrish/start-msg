@@ -1,5 +1,5 @@
 from telegram import Update
-from telegram.ext import Updater, MessageHandler, CallbackContext, Filters
+from telegram.ext import Updater, MessageHandler, CallbackContext
 
 # Replace 'YOUR_BOT_TOKEN' with your actual bot token
 BOT_TOKEN = '6286222522:AAGDmZF5xdpakB8_4-SpmATSjerBVG4iohs'
@@ -15,7 +15,7 @@ def main():
     dispatcher = updater.dispatcher
 
     # Add a message handler to respond to messages in private chats
-    dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, respond_to_message))
+    dispatcher.add_handler(MessageHandler(callback=respond_to_message, filters=~Filters.command))
 
     # Start polling for updates from Telegram
     updater.start_polling()
@@ -25,3 +25,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
